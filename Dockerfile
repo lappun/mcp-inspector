@@ -1,0 +1,11 @@
+FROM node:18-alpine
+
+ENV EXTERNAL_SERVER_PORT=443
+ENV CLIENT_PORT=6274
+ENV SERVER_PORT=6277
+
+WORKDIR /app
+COPY . .
+RUN npm install
+
+CMD ["npm", "start"]

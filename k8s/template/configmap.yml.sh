@@ -14,7 +14,6 @@ metadata:
     app: ${APP}
 data:
   TZ: "${TZ}"
-  PORT: "${PORT}"
   APP: "${APP}"
   APP_ID: "${APP_ID}"
   EXTERNAL_SERVER_PORT: "${EXTERNAL_SERVER_PORT}"

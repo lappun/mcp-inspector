@@ -36,9 +36,20 @@ spec:
           service:
             name: ${APP}
             port:
-              number: ${PORT}
+              number: ${SERVER_PORT}
+  - host: ${CLIENT_HOST}
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: ${APP}
+            port:
+              number: ${CLIENT_PORT}
   tls:
   - hosts:
+    - ${CLIENT_HOST}
     - ${HOST}
     secretName: ${HOSTDASH}-crt
 

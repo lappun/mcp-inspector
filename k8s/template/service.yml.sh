@@ -14,7 +14,10 @@ metadata:
     app: ${APP}
 spec:
   ports:
-   - port: ${PORT}
+   - port: ${CLIENT_PORT}
+     name: client
+   - port: ${SERVER_PORT}
+     name: server
   selector:
    app: ${APP}
 

@@ -25,8 +25,10 @@ spec:
           imagePullPolicy: Always
           name: ${APP}
           ports:
-            - containerPort: ${PORT}
-              name: http
+            - containerPort: ${CLIENT_PORT}
+              name: client
+            - containerPort: ${SERVER_PORT}
+              name: server
           envFrom:
             - configMapRef:
                 name: ${APP}-config

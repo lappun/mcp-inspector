@@ -8,4 +8,4 @@ WORKDIR /app
 COPY . .
 RUN npm install
 
-CMD ["npm", "start"]
+CMD ["/app/entrypoint.sh"]

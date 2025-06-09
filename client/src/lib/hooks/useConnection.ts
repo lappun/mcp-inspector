@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import {
   SSEClientTransport,
@@ -272,7 +273,7 @@ export function useConnection({
     return false;
   };
 
-  const connect = async (_e?: unknown, retryCount: number = 0) => {
+  const connect = async (_e?: unknown, retryCount: number = 0): Promise<any> => {
     const client = new Client<Request, Notification, Result>(
       {
         name: "mcp-inspector",
@@ -363,6 +364,7 @@ export function useConnection({
         case "streamable-http":
           mcpProxyServerUrl = new URL(`${getMCPProxyAddress(config)}/mcp`);
           mcpProxyServerUrl.searchParams.append("url", sseUrl);
+          console.log("fetch URL", sseUrl)
           transportOptions = {
             eventSourceInit: {
               fetch: (

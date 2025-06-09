@@ -64,7 +64,7 @@ const getHttpHeaders = (
     }
 
     const value = req.headers[key];
-    headers[key] = Array.isArray(value) ? value[value.length - 1] : value;
+    headers[key] = Array.isArray(value) ? value[value.length - 1] : value || '';
   }
 
   // If the header "x-custom-auth-header" is present, use its value as the custom header name.
@@ -303,7 +303,7 @@ app.get("/stdio", async (req, res) => {
           },
         });
         webAppTransport.close();
-        serverTransport.close();
+        serverTransport!.close();
         webAppTransports.delete(webAppTransport.sessionId);
         serverTransports.delete(webAppTransport.sessionId);
         console.error("Command not found, transports removed");
@@ -415,7 +415,7 @@ app.get("/config", (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 6277;
+const PORT = process.env.SERVER_PORT || 6277;
 
 const server = app.listen(PORT);
 server.on("listening", () => {

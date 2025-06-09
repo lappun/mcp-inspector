@@ -2,12 +2,17 @@ import { InspectorConfig } from "@/lib/configurationTypes";
 import {
   DEFAULT_MCP_PROXY_LISTEN_PORT,
   DEFAULT_INSPECTOR_CONFIG,
+  DEFAULT_INSPECTOR_PROXY_ADDRESS,
 } from "@/lib/constants";
 
 export const getMCPProxyAddress = (config: InspectorConfig): string => {
   const proxyFullAddress = config.MCP_PROXY_FULL_ADDRESS.value as string;
+  console.log("getMCPProxyAddress()", {DEFAULT_INSPECTOR_PROXY_ADDRESS, DEFAULT_MCP_PROXY_LISTEN_PORT})
   if (proxyFullAddress) {
     return proxyFullAddress;
+  }
+  if (DEFAULT_INSPECTOR_PROXY_ADDRESS) {
+    return DEFAULT_INSPECTOR_PROXY_ADDRESS;
   }
   return `${window.location.protocol}//${window.location.hostname}:${DEFAULT_MCP_PROXY_LISTEN_PORT}`;
 };
@@ -102,6 +107,7 @@ export const initializeInspectorConfig = (
 ): InspectorConfig => {
   const savedConfig = localStorage.getItem(localStorageKey);
   let baseConfig: InspectorConfig;
+  console.log("initializeInspectorConfig()", {savedConfig, DEFAULT_INSPECTOR_CONFIG})
   if (savedConfig) {
     // merge default config with saved config
     const mergedConfig = {

@@ -26,6 +26,7 @@ export type ConnectionStatus =
   | "error-connecting-to-proxy";
 
 export const DEFAULT_MCP_PROXY_LISTEN_PORT = process.env.EXTERNAL_SERVER_PORT ?? "6277";
+export const DEFAULT_INSPECTOR_PROXY_ADDRESS = process.env.EXTERNAL_INSPECTOR_PROXY_ADDRESS ?? "";
 
 /**
  * Default configuration for the MCP Inspector, Currently persisted in local_storage in the Browser.
@@ -52,6 +53,6 @@ export const DEFAULT_INSPECTOR_CONFIG: InspectorConfig = {
     label: "Inspector Proxy Address",
     description:
       "Set this if you are running the MCP Inspector Proxy on a non-default address. Example: http://10.1.1.22:5577",
-    value: "",
+    value: DEFAULT_INSPECTOR_PROXY_ADDRESS,
   },
 } as const;

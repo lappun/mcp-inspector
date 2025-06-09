@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# set DIR as the current scripts directory
-DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+#!/bin/sh
 
 echo EXTERNAL_SERVER_PORT $EXTERNAL_SERVER_PORT
 echo EXTERNAL_INSPECTOR_PROXY_ADDRESS $EXTERNAL_INSPECTOR_PROXY_ADDRESS

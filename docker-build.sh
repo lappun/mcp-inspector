@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build . -t lappun/mcp-inspector:1.0
+docker build . -t lappun/mcp-inspector:1.2

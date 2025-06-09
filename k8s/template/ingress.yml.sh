@@ -22,7 +22,7 @@ metadata:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       more_set_headers "Access-Control-Allow-Origin: *";
       more_set_headers "Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS";
-      more_set_headers "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Parse-Application-Id, X-Parse-Session-Token";
+      more_set_headers "Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization, Mcp-Session-ID";
       more_set_headers "Access-Control-Allow-Credentials: true";
 spec:
   ingressClassName: public
